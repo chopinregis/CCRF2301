@@ -27,8 +27,8 @@ resource "azurerm_virtual_machine" "myvms" {
 
   os_profile {
     computer_name  = var.vm_names[count.index]
-    admin_username = "adminuser"
-    admin_password = "Password1234!"
+    admin_username = var.admin_username_name
+    admin_password = var.admin_password_pass
   }
 
   os_profile_linux_config {
