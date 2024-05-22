@@ -42,3 +42,17 @@ variable "vm_size" {
   type        = string
   default     = "Standard_DS1_v2"
 }
+
+//
+//
+
+
+variable "admin_username_name" {
+  description = "name of the admin unsername"
+  type        = string
+}
+
+variable "admin_password_pass" {
+  description = "password of the admin"
+  type        = string
+}
