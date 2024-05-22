@@ -21,3 +21,24 @@ variable "tenant_id" {
 //
 //
 
+variable "vm_names" {
+  description = "List of names for the virtual machines"
+  type        = list(string)
+  default     = ["firstvm", "secondvm", "thirdvm", "fourthvm", "fifthvm"]
+}
+
+variable "resource_group_name" {
+  description = "Name of the resource group"
+  type        = string
+}
+
+variable "location" {
+  description = "Azure region for the resource group"
+  type        = string
+}
+
+variable "vm_size" {
+  description = "Size of the Azure Virtual Machine"
+  type        = string
+  default     = "Standard_DS1_v2"
+}
