@@ -47,12 +47,12 @@ variable "vm_size" {
 //
 
 
-variable "admin_username_name" {
+variable "admin_username" {
   description = "name of the admin unsername"
   type        = string
 }
 
-variable "admin_password_pass" {
+variable "admin_password" {
   description = "password of the admin"
   type        = string
 }
