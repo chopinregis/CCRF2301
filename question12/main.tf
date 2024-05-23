@@ -31,7 +31,7 @@ resource "azurerm_network_interface" "my_nic" {
 }
 
 resource "azurerm_virtual_machine" "myvms" {
-  count                = length(local.vm_config["vms"])
+  count                = length(local.vm_config)
   name                 = var.vm_config["vms"][count.index]["name"]
   location             = azurerm_resource_group.vm_rg.location
   resource_group_name  = azurerm_resource_group.vm_rg.name
@@ -39,7 +39,7 @@ resource "azurerm_virtual_machine" "myvms" {
   vm_size              = "Standard_DS1_v2"
 
   storage_os_disk {
-    name              = "${local.vm_config["vms"][count.index]["name"]}OsDisk"
+    name              = "${local.vm_config[count.index]["name"]}OsDisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -53,7 +53,7 @@ resource "azurerm_virtual_machine" "myvms" {
   }
 
   os_profile {
-    computer_name  = local.vm_config["vms"][count.index]["name"]
+    computer_name  = local.vm_config[count.index]["name"]
     admin_username = var.admin_username
     admin_password = var.admin_password
   }
