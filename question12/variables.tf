@@ -67,8 +67,11 @@ variable "vm_config" {
 
   default = {
     vms = [
-      "vm1",
-      "vm2"
+      "sixthvm",
+      "seventhvm",
+      "eighthvm",
+      "ninthvm",
+      "tenthvm"
     ]
   }
 }
