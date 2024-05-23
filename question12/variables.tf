@@ -60,7 +60,7 @@ variable "admin_password" {
 //
 //
 
-variable "vm-config" {
+variable "vm_config" {
   description = "YAML configuration for VMs"
   type        = any
   default     = {}
