@@ -61,11 +61,15 @@ variable "admin_password" {
 //
 
 variable "vm_config" {
-  description = "YAML configuration for VMs"
-  type        = object({
-    vms = list({})
-  }
+  type = map(object({
+    name = string
+  }))
 
-  )
-  default     = {}
+  default = {
+    vms = [
+      "vm1",
+      "vm2"
+    ]
+  }
 }
+
