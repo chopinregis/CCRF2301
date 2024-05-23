@@ -39,8 +39,8 @@ resource "azurerm_network_interface" "my_nic" {
 }
 
 resource "azurerm_virtual_machine" "myvms" {
-  count                = length(local.vm_config)
-  name                 = var.vm_config[count.index]["name"]
+  count                = length(var.vm_config)
+  name                 = var.vm_config[count.index].name
   location             = azurerm_resource_group.vm_rg.location
   resource_group_name  = azurerm_resource_group.vm_rg.name
   network_interface_ids = [azurerm_network_interface.my_nic[count.index].id]
