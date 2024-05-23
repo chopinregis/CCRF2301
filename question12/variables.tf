@@ -62,6 +62,10 @@ variable "admin_password" {
 
 variable "vm_config" {
   description = "YAML configuration for VMs"
-  type        = any
+  type        = object({
+    vms = list({})
+  }
+
+  )
   default     = {}
 }
