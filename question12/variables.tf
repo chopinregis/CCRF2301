@@ -62,9 +62,9 @@ variable "admin_password" {
 
 variable "vm_config" {
   description = "VM configuration"
-  type = list(object({
-    name = string
-  }))
+  type        = any
+  default     = {} 
 }
+
 
 
