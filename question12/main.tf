@@ -17,11 +17,19 @@ resource "azurerm_subnet" "my_subnet" {
   address_prefixes       = ["10.0.1.0/24"]
 }
 
+/*
 resource "azurerm_network_interface" "my_nic" {
   count               = length(var.vm_config)
   name                = "${var.vm_config["vms"][count.index]["name"]}NIC"
   location            = azurerm_resource_group.vm_rg.location
   resource_group_name = azurerm_resource_group.vm_rg.name
+*/
+resource "azurerm_network_interface" "my_nic" {
+  count               = length(local.vm_config)
+  name                = "nic-${local.vm_config[count.index]["name"]}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
 
   ip_configuration {
     name                          = "internal"
