@@ -18,7 +18,7 @@ resource "azurerm_subnet" "my_subnet" {
 }
 
 resource "azurerm_network_interface" "my_nic" {
-  count               = length(var.vm_config["vms"])
+  count               = length(var.vm_config)
   name                = "${var.vm_config["vms"][count.index]["name"]}NIC"
   location            = azurerm_resource_group.vm_rg.location
   resource_group_name = azurerm_resource_group.vm_rg.name
