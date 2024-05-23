@@ -61,18 +61,9 @@ variable "admin_password" {
 //
 
 variable "vm_config" {
-  type = map(object({
-    name = string
-  }))
-
-  default = {
-    vms = [
-      "sixthvm",
-      "seventhvm",
-      "eighthvm",
-      "ninthvm",
-      "tenthvm"
-    ]
-  }
+  description = "Configuration for VMs"
+  type        = any
+  default     = {}
 }
+
 
