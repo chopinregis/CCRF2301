@@ -18,8 +18,8 @@ resource "azurerm_subnet" "my_subnet" {
 }
 
 resource "azurerm_network_interface" "my_nic" {
-  count               = length(var.vm_config["vms"])
-  name                = "${var.vm_config["vms"][count.index]["name"]}NIC"
+  count               = length(var.vm-config["vms"])
+  name                = "${var.vm-config["vms"][count.index]["name"]}NIC"
   location            = azurerm_resource_group.vm_rg.location
   resource_group_name = azurerm_resource_group.vm_rg.name
 
@@ -53,7 +53,7 @@ resource "azurerm_virtual_machine" "myvms" {
   }
 
   os_profile {
-    computer_name  = var.vm_config["vms"][count.index]["name"]
+    computer_name  = var.vm-config["vms"][count.index]["name"]
     admin_username = var.admin_username
     admin_password = var.admin_password
   }
